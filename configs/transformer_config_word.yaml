@@ -1,20 +1,20 @@
 name: "transformer_sample_config"
 
 data:
-    src: "?"
-    trg: "?"
+    src: "de"
+    trg: "en"
     train: "?"
     dev:   "?"
     test:  "?"
-    level: "?"
+    level: "?" #word or bpe
     lowercase: False
     max_sent_length: 100
     # either use a vocabulary limit:
-    src_voc_limit: ?
-    trg_voc_limit: ?
+    src_voc_limit: 2000
+    trg_voc_limit: 2000
     # or (= not both!) a file with a vocabulary built before starting the training:
-    src_vocab: "?"
-    trg_vocab: "?"
+    #src_vocab: "?"
+    #trg_vocab: "?"
 
 testing:
     beam_size: ?
