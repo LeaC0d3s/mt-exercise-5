@@ -1,17 +1,18 @@
-name: "transformer_sample_config"
+name: "transformer_config_bpe2"
 
 data:
     src: "de"
     trg: "en"
-    train: "?"
-    dev:   "?"
-    test:  "?"
-    level: "?" #word or bpe
+    train: "data/tok_prep2/train.de-en_sub"
+    dev:   "data/tok_prep2/dev.de-en"
+    test:  "data/tok_prep2/test.de-en"
+    level: "bpe" #word or bpe
     lowercase: False
     max_sent_length: 100
+    random_train_subset: 100000
     # either use a vocabulary limit:
-    src_voc_limit: ?
-    trg_voc_limit: ?
+    #src_voc_limit: ?
+    #trg_voc_limit: ?
     # or (= not both!) a file with a vocabulary built before starting the training:
     src_vocab: "vocab/vocab_de.txt"
     trg_vocab: "vocab/vocab_en.txt"
@@ -38,7 +39,7 @@ training:
     validation_freq: 500
     logging_freq: 100
     eval_metric: "bleu"
-    model_dir: "?"
+    model_dir: "models/transformer_config_bpe2"
     overwrite: False
     shuffle: True
     use_cuda: False
