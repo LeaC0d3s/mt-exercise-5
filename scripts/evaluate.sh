@@ -23,7 +23,9 @@ device=0
 
 SECONDS=0
 
-model_name=transformer_sample_config
+model_name=transformer_config_word
+#model_name=transformer_config_bpe
+#model_name=transformer_config_bpe2
 
 echo "###############################################################################"
 echo "model_name $model_name"
