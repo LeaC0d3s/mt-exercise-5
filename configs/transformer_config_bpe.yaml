@@ -3,9 +3,9 @@ name: "transformer_config_bpe"
 data:
     src: "de"
     trg: "en"
-    train: "data/tok_prep2/train.de-en_sub"
-    dev:   "data/tok_prep2/dev.de-en"
-    test:  "data/tok_prep2/test.de-en"
+    train: "data/tok_prep2/train.de-en.bpe"
+    dev:   "data/tok_prep2/dev.de-en.bpe"
+    test:  "data/tok_prep2/test.de-en.bpe"
     level: "bpe" #word or bpe
     lowercase: False
     max_sent_length: 100
@@ -14,11 +14,11 @@ data:
     #src_voc_limit: ?
     #trg_voc_limit: ?
     # or (= not both!) a file with a vocabulary built before starting the training:
-    src_vocab: "vocabs/vocab_de.txt"
-    trg_vocab: "vocabs/vocab_en.txt"
+    src_vocab: "shared_models/vocab.txt"
+    trg_vocab: "shared_models/vocab.txt"
 
 testing:
-    beam_size: ?
+    beam_size: 4
     alpha: 1.0
 
 training:

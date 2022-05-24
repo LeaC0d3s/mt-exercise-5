@@ -3,7 +3,7 @@ name: "transformer_config_word"
 data:
     src: "de"
     trg: "en"
-    train: "data/tok_prep2/train.de-en_sub"
+    train: "data/tok_prep2/train.de-en"
     dev:   "data/tok_prep2/dev.de-en"
     test:  "data/tok_prep2/test.de-en"
     level: "word" #word or bpe
@@ -18,7 +18,7 @@ data:
     #trg_vocab: "?"
 
 testing:
-    beam_size: ?
+    beam_size: 4
     alpha: 1.0
 
 training:
