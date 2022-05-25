@@ -1,21 +1,20 @@
-name: "transformer_config_bpe"
+name: "transformer_config_2000_bpe"
 
 data:
     src: "de"
     trg: "en"
-    train: "data/tok_prep2/train.de-en.bpe"
-    dev:   "data/tok_prep2/dev.de-en.bpe"
-    test:  "data/tok_prep2/test.de-en.bpe"
+    train: "data/tokenized/train.de-en.2000.bpe"
+    dev:   "data/tokenized/dev.de-en.2000.bpe"
+    test:  "data/tokenized/test.de-en.2000.bpe"
     level: "bpe" #word or bpe
     lowercase: False
     max_sent_length: 100
-    random_train_subset: 100000
     # either use a vocabulary limit:
     #src_voc_limit: ?
     #trg_voc_limit: ?
     # or (= not both!) a file with a vocabulary built before starting the training:
-    src_vocab: "shared_models/vocab.txt"
-    trg_vocab: "shared_models/vocab.txt"
+    src_vocab: "shared_models/vocab_2000.txt"
+    trg_vocab: "shared_models/vocab_2000.txt"
 
 testing:
     beam_size: 4
@@ -39,7 +38,7 @@ training:
     validation_freq: 500
     logging_freq: 100
     eval_metric: "bleu"
-    model_dir: "models/transformer_config_bpe"
+    model_dir: "models/transformer_config_2000_bpe"
     overwrite: False
     shuffle: True
     use_cuda: False

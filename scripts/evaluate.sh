@@ -23,9 +23,8 @@ device=0
 
 SECONDS=0
 
-model_name=transformer_config_word
-#model_name=transformer_config_bpe
-#model_name=transformer_config_bpe2
+model_name=transformer_config_wordlevel
+
 
 echo "###############################################################################"
 echo "model_name $model_name"
@@ -34,7 +33,7 @@ translations_sub=$translations/$model_name
 
 mkdir -p $translations_sub
 
-CUDA_VISIBLE_DEVICES=$device OMP_NUM_THREADS=$num_threads python -m joeynmt translate $configs/$model_name.yaml < $data/tok_prep/test.de-en.$src > $translations_sub/test.de-en.tokenized.$model_name.$trg
+CUDA_VISIBLE_DEVICES=$device OMP_NUM_THREADS=$num_threads python -m joeynmt translate $configs/$model_name.yaml < $data/tokenized/test.de-en.$src > $translations_sub/test.de-en.tokenized.$model_name.$trg
 
 # undo BPE
 

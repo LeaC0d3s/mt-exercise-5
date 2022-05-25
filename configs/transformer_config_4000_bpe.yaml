@@ -1,21 +1,20 @@
-name: "transformer_config_word"
+name: "transformer_config_4000_bpe"
 
 data:
     src: "de"
     trg: "en"
-    train: "data/tok_prep2/train.de-en"
-    dev:   "data/tok_prep2/dev.de-en"
-    test:  "data/tok_prep2/test.de-en"
-    level: "word" #word or bpe
+    train: "data/tokenized/train.de-en.4000"
+    dev:   "data/tokenized/dev.de-en.4000"
+    test:  "data/tokenized/test.de-en.4000"
+    level: "bpe" #word or bpe
     lowercase: False
     max_sent_length: 100
-    random_train_subset: 100000
     # either use a vocabulary limit:
-    src_voc_limit: 2000
-    trg_voc_limit: 2000
+    #src_voc_limit: ?
+    #trg_voc_limit: ?
     # or (= not both!) a file with a vocabulary built before starting the training:
-    #src_vocab: "?"
-    #trg_vocab: "?"
+    src_vocab: "shared_models/vocab_4000.txt"
+    trg_vocab: "shared_models/vocab_4000.txt"
 
 testing:
     beam_size: 4
@@ -39,7 +38,7 @@ training:
     validation_freq: 500
     logging_freq: 100
     eval_metric: "bleu"
-    model_dir: "models/transformer_config_word"
+    model_dir: "models/transformer_config_4000_bpe"
     overwrite: False
     shuffle: True
     use_cuda: False
@@ -53,7 +52,7 @@ model:
     init_gain: 1.0
     embed_initializer: "xavier"
     embed_init_gain: 1.0
-    tied_embeddings: False
+    tied_embeddings: True
     tied_softmax: True
     encoder:
         type: "transformer"

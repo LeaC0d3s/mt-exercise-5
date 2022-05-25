@@ -28,24 +28,24 @@ bpe_vocab_threshold=10
 
 # learn BPE model on train (concatenate both languages)
 
-subword-nmt learn-joint-bpe-and-vocab -i $data/tok_prep2/train.de-en.$src $data/tok_prep2/train.de-en.$trg \
-	--write-vocabulary $base/shared_models/vocab.$src $base/shared_models/vocab.$trg \
-	-s $bpe_num_operations -o $base/shared_models/$src$trg.bpe
+subword-nmt learn-joint-bpe-and-vocab -i $data/tokenized/train.de-en.$src $data/tokenized/train.de-en.$trg \
+	--write-vocabulary $base/shared_models/vocab_2000.$src $base/shared_models/vocab_2000.$trg \
+	-s $bpe_num_operations --total-symbols -o $base/shared_models/2000_$src$trg.bpe
 
 # apply BPE model to train, test and dev
 
 for corpus in train dev test; do
-	subword-nmt apply-bpe -c $base/shared_models/$src$trg.bpe --vocabulary $base/shared_models/vocab.$src --vocabulary-threshold $bpe_vocab_threshold < $data/tok_prep2/$corpus.de-en.$src > $data/tok_prep2/$corpus.de-en.bpe.$src
-	subword-nmt apply-bpe -c $base/shared_models/$src$trg.bpe --vocabulary $base/shared_models/vocab.$trg --vocabulary-threshold $bpe_vocab_threshold < $data/tok_prep2/$corpus.de-en.$trg > $data/tok_prep2/$corpus.de-en.bpe.$trg
+	subword-nmt apply-bpe -c $base/shared_models/2000_$src$trg.bpe --vocabulary $base/shared_models/vocab_2000.$src --vocabulary-threshold $bpe_vocab_threshold < $data/tokenized/$corpus.de-en.$src > $data/tokenized/$corpus.de-en.2000.bpe.$src
+	subword-nmt apply-bpe -c $base/shared_models/2000_$src$trg.bpe --vocabulary $base/shared_models/vocab_2000.$trg --vocabulary-threshold $bpe_vocab_threshold < $data/tokenized/$corpus.de-en.$trg > $data/tokenized/$corpus.de-en.2000.bpe.$trg
 done
 
 # build joeynmt vocab
-python $tools/joeynmt/scripts/build_vocab.py $data/tok_prep2/train.de-en.bpe.$src $data/tok_prep2/train.de-en.bpe.$trg --output_path $base/shared_models/vocab.txt
+python $tools/joeynmt/scripts/build_vocab.py $data/tokenized/train.de-en.2000.bpe.$src $data/tokenized/train.de-en.2000.bpe.$trg --output_path $base/shared_models/vocab_2000.txt
 
 # file sizes
 for corpus in train dev test; do
 	echo "corpus: "$corpus
-	wc -l $data/tok_prep2/$corpus.de-en.bpe.$src $data/tok_prep2/$corpus.de-en.bpe.$trg
+	wc -l $data/tokenized/$corpus.de-en.2000.bpe.$src $data/tokenized/$corpus.de-en.2000.bpe.$trg
 done
 
 wc -l $base/shared_models/*
