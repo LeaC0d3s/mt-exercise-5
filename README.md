@@ -15,7 +15,7 @@ data and train & evaluate models.
 
 Clone this repository in the desired place:
 
-    git clone https://github.com/emmavdbold/mt-exercise-5
+    git clone https://github.com/LeaC0d3s/mt-exercise-5.git
 
 Create a new virtualenv that uses Python 3. Please make sure to run this command outside of any virtual Python environment:
 
@@ -41,7 +41,7 @@ Download data:
     
     ./scripts/preprocess_4000_bpe.sh
 
-Train a model: (select manually with model_name variable you want to train on: _wordlevel, _2000_bpe or _4000_bpe) Then let it run:
+Train a model: (open script and select manually which model_name variable you want to train on: _wordlevel, _2000_bpe or _4000_bpe) Then let it run:
 
     ./scripts/train.sh
 
@@ -63,4 +63,4 @@ To compare 10 different Beam Sizes and compute a Bar-Chart with the results, run
 
     ./scripts/evaluate_beam_bleu_plot.sh
     
-It takes around 1.4h to run this last evaluation script (its not very efficient but It works :)
+It takes around 1.4h to run this evaluation script (its not very efficient but It works :))
