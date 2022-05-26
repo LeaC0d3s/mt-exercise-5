@@ -35,10 +35,6 @@ mkdir -p $translations_sub
 
 CUDA_VISIBLE_DEVICES=$device OMP_NUM_THREADS=$num_threads python -m joeynmt translate $configs/$model_name.yaml < $data/tokenized/test.de-en.$src > $translations_sub/test.de-en.tokenized.$model_name.$trg
 
-# undo BPE
-
-#cat $translations_sub/test.bpe.$model_name.$trg | sed 's/\@\@ //g' > $translations_sub/test.tokenized.$model_name.$trg
-
 # undo tokenization
 
 cat $translations_sub/test.de-en.tokenized.$model_name.$trg | $MOSES/tokenizer/detokenizer.perl -l $trg > $translations_sub/test.de-en.$model_name.$trg

@@ -17,8 +17,8 @@ SECONDS=0
 logs=$base/logs
 
 #model_name=transformer_config_wordlevel
-model_name=transformer_config_2000_bpe
-#model_name=transformer_config_4000_bpe
+#model_name=transformer_config_2000_bpe
+model_name=transformer_config_4000_bpe
 mkdir -p models
 mkdir -p $logs
 

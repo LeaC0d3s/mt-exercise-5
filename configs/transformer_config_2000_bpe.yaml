@@ -13,14 +13,15 @@ data:
     #src_voc_limit: ?
     #trg_voc_limit: ?
     # or (= not both!) a file with a vocabulary built before starting the training:
-    src_vocab: "shared_models/vocab_2000.txt"
-    trg_vocab: "shared_models/vocab_2000.txt"
+    src_vocab: "shared_models/vocab_2000.txt" # for loading latest ckpt: models/transformer_config_2000_bpe/trg_vocab.txt
+    trg_vocab: "shared_models/vocab_2000.txt" #for loading latest ckpt: models/transformer_config_2000_bpe/trg_vocab.txt
 
 testing:
     beam_size: 4
     alpha: 1.0
 
 training:
+    #load_model: "models/transformer_config_2000_bpe/latest.ckpt" # used when it suddently terminated before the 10th Epoch
     random_seed: 42
     optimizer: "adam"
     normalization: "tokens"
@@ -38,7 +39,7 @@ training:
     validation_freq: 500
     logging_freq: 100
     eval_metric: "bleu"
-    model_dir: "models/transformer_config_2000_bpe"
+    model_dir: "models/transformer_config_2000_bpe" # "models/new_transformer_config_2000_bpe" redirected the data for loading existing model
     overwrite: False
     shuffle: True
     use_cuda: False
