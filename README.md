@@ -29,16 +29,38 @@ Download and install required software:
 
 Download data:
 
-    ./download_iwslt_2017_data.sh
+    ./scripts/download_iwslt_2017_data.sh
 
-The data is only minimally preprocessed, so you may want to tokenize it and apply any further preprocessing steps.
+## Subsample training data and Tokenize all Data (Translation direction de-en)
 
-Train a model:
+    ./scripts/tokenize_data.sh
+    
+### Preprocessing BPE with vocab: 2000 and vocab: 4000
+
+    ./scripts/preprocess_2000_bpe.sh
+    
+    ./scripts/preprocess_4000_bpe.sh
+
+Train a model: (select manually with model_name variable you want to train on: _wordlevel, _2000_bpe or _4000_bpe) Then let it run:
 
     ./scripts/train.sh
 
 The training process can be interrupted at any time, and the best checkpoint will always be saved.
 
-Evaluate a trained model with
+Evaluate a trained model with:
 
-    ./scripts/evaluate.sh
+    ./scripts/evaluate_wordlevel.sh
+    
+    ./scripts/evaluate_2000_bpe.sh
+    
+    ./scripts/evaluate_4000_bpe.sh
+    
+
+# Task 3: Compare BLEU score and Beam Size variation on Best Model
+- My best model with a BLEU score of `23.6` was the 4000 vocab bpe model
+
+To compare 10 different Beam Sizes and compute a Bar-Chart with the results, run:
+
+    ./scripts/evaluate_beam_bleu_plot.sh
+    
+It takes around 1.4h to run this last evaluation script (its not very efficient but It works :)
