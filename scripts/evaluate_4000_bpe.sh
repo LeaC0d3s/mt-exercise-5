@@ -33,11 +33,11 @@ translations_sub=$translations/$model_name
 
 mkdir -p $translations_sub
 
-CUDA_VISIBLE_DEVICES=$device OMP_NUM_THREADS=$num_threads python -m joeynmt translate $configs/$model_name.yaml < $data/tokenized/test.de-en.4000.bpe.$src > $translations_sub/test.de-en.4000.bpe.$model_name.$trg
+CUDA_VISIBLE_DEVICES=$device OMP_NUM_THREADS=$num_threads python -m joeynmt translate $configs/$model_name.yaml < $data/tokenized/test.de-en.4000.bpe.$src > $translations_sub/test.de-en.4000.tokenized.$model_name.$trg
 
 # undo BPE
 
-cat $translations_sub/test.de-en.4000.bpe.$model_name.$trg | sed 's/\@\@ //g' > $translations_sub/test.de-en.4000.tokenized.$model_name.$trg
+#cat $translations_sub/test.de-en.4000.bpe.$model_name.$trg | sed 's/\@\@ //g' > $translations_sub/test.de-en.4000.tokenized.$model_name.$trg
 
 # undo tokenization
 

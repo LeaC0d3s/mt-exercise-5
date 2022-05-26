@@ -30,7 +30,7 @@ bpe_vocab_threshold=10
 
 subword-nmt learn-joint-bpe-and-vocab -i $data/tokenized/train.de-en.$src $data/tokenized/train.de-en.$trg \
 	--write-vocabulary $base/shared_models/vocab_4000.$src $base/shared_models/vocab_4000.$trg \
-	-s $bpe_num_operations -o $base/shared_models/4000_$src$trg.bpe
+	-s $bpe_num_operations --total-symbols -o $base/shared_models/4000_$src$trg.bpe
 
 # apply BPE model to train, test and dev
 

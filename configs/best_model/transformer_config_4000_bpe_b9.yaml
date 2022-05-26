@@ -1,4 +1,4 @@
-name: "transformer_config_4000_bpe"
+name: "transformer_config_4000_bpe_b9"
 
 data:
     src: "de"
@@ -17,7 +17,7 @@ data:
     trg_vocab: "shared_models/vocab_4000.txt"
 
 testing:
-    beam_size: 4
+    beam_size: 9
     alpha: 1.0
 
 training:

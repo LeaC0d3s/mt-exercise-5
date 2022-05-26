@@ -1,4 +1,4 @@
-name: "transformer_config_4000_bpe"
+name: "transformer_config_4000_bpe_b4"
 
 data:
     src: "de"
