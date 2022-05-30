@@ -19,12 +19,9 @@ bpe_vocab_threshold=10
 
 #################################################################
 
-# input files are preprocessed already up to truecasing
+# input files are preprocessed already up to tokenization
 
-# remove preprocessing for target language test data, for evaluation
 
-#cat $data/test.truecased.$trg | $MOSES/recaser/detruecase.perl > $data/test.tokenized.$trg
-#cat $data/test.tokenized.$trg | $MOSES/tokenizer/detokenizer.perl -l $trg > $data/test.$trg
 
 # learn BPE model on train (concatenate both languages)
 

@@ -38,7 +38,7 @@ def plot_models(bleu, beam):
 if __name__ == "__main__":
 	parser = argparse.ArgumentParser(description='## BEAM-BLEU Plotter ##')
 	parser.add_argument('--score_file', help='file with all the resulting Bleu scores', required=True)
-	parser.add_argument('--beam_sizes', help='List of Beamsizes, in the order the BLEU file was created', nargs="+", required=True)
+	parser.add_argument('--beam_sizes', help='List of Beamsizes, in the same order the BLEU file was created', nargs="+", required=True)
 
 	args = parser.parse_args()
 
