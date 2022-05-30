@@ -55,6 +55,8 @@ Evaluate a trained model with:
     
     ./scripts/evaluate_4000_bpe.sh
     
+Observations about the result, as well as the table corresponding with all the BLEU score comparisons are explained in the PDF file I submitted on OLAT.
+    
 
 # Task 3: Compare BLEU score and Beam Size variation on Best Model
 - My best model with a BLEU score of `23.6` was the 4000 vocab bpe model
