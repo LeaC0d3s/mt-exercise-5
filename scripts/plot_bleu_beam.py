@@ -32,7 +32,7 @@ def plot_models(bleu, beam):
 	plt.title('Relation between Beam-Size and BLEU score')
 
 	# function to show the plot
-	plt.savefig("Beam-Bleu-Plot.png")
+	plt.savefig("beam_translations/Beam-Bleu-Plot.png")
 	plt.show()
 
 if __name__ == "__main__":
