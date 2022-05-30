@@ -65,4 +65,4 @@ To compare 10 different Beam Sizes and compute a Bar-Chart with the results, run
 
     ./scripts/evaluate_beam_bleu_plot.sh
     
-It takes around 1.4h to run this evaluation script (its not very efficient but It works :))
+It takes around 1.4h to run this evaluation script (its not very efficient but It works :)) ps. A more detailed explaination to the results and such, are written down in the submitted OLAT PDF together with the Task 2 observations.
